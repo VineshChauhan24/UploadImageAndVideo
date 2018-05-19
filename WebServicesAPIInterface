@@ -1,0 +1,45 @@
+
+import okhttp3.MultipartBody;
+import retrofit2.Call;
+import retrofit2.http.Multipart;
+import retrofit2.http.POST;
+import retrofit2.http.Part;
+
+public interface WebServicesAPI {
+
+
+    //for multiple image upload
+    @Multipart
+    @POST("apiaddress")
+    Call<ResponseLoadimagesmultipleToWildBook> multipleImages(
+            @Part MultipartBody.Part[] image,
+            @Part("field1") String field1,
+            @Part("field2") String field2,
+            @Part("field3") String field3,
+            @Part("field4") String field4,
+            @Part("field5") String field5);
+
+
+    //for single image upload
+    @Multipart
+    @POST("loadimagesmultipleToWildBook")
+    Call<ResponseLoadimagesmultipleToWildBook> loadImage(
+            @Part MultipartBody.Part image,
+           @Part("field1") String field1,
+            @Part("field2") String field2,
+            @Part("field3") String field3,
+            @Part("field4") String field4,
+            @Part("field5") String field5);
+
+    //for single video upload
+
+    @Multipart
+    @POST("loadvideoToWildBook")
+    Call<ResponseLoadVideoToWildBook> loadvideo(
+            @Part MultipartBody.Part video,
+             @Part("field1") String field1,
+            @Part("field2") String field2,
+            @Part("field3") String field3,
+            @Part("field4") String field4,
+            @Part("field5") String field5);
+}
